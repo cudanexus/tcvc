@@ -1,0 +1,7 @@
+*.pyc
+*.mp4
+*.jpg
+*.png
+experiments/pretrained_models/
+experiments/TCVC_IDC/models/80000_G.pth
+*.whl

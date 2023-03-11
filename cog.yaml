@@ -1,0 +1,61 @@
+build:
+  gpu: true
+  cuda: "10.0"
+  python_version: "3.8"
+  system_packages:
+    - "build-essential"
+    - "ffmpeg"
+    - "libsm6"
+    - "libxext6"
+    - "libavcodec-dev"
+    - "git"
+    - "wget"
+    - "unzip"
+    - "liblapack-dev"
+    - "libblas-dev"
+    - "gfortran"
+    - "nano"
+  python_packages:
+    - "setuptools"
+    - "requests"
+    - "boto3"
+    - "ipython==7.16.3"
+    - "ipython-genutils==0.2.0"
+    - "jedi==0.17.2"
+    - "matplotlib==3.3.4"
+    - "networkx==2.5.1"
+    - "numpy==1.19.5"
+    - "opencv-python==4.3.0.38"
+    - "parso==0.7.1"
+    - "pexpect==4.8.0"
+    - "pickleshare==0.7.5"
+    - "Pillow==8.4.0"
+    - "torch==1.4.0"
+    - "torchvision==0.1.6"
+    - "prompt-toolkit==3.0.36"
+    - "ptyprocess==0.7.0"
+    - "Pygments==2.14.0"
+    - "PyYAML==6.0"
+    - "scikit-image==0.17.2"
+    - "scipy==1.5.4"
+    - "alphaui"
+
+  run:
+    # - git clone https://github.com/zhangmozhe/Deep-Exemplar-based-Video-Colorization.git
+    # - cd Deep-Exemplar-based-Video-Colorization/
+    - git clone https://github.com/lyh-18/TCVC-Temporally-Consistent-Video-Colorization.git
+    - cd TCVC-Temporally-Consistent-Video-Colorization/codes/models/archs/networks/channelnorm_package/ \ && python setup.py develop
+    - cd TCVC-Temporally-Consistent-Video-Colorization/codes/models/archs/networks/correlation_package/ \ && python setup.py develop
+    - cd TCVC-Temporally-Consistent-Video-Colorization/codes/models/archs/networks/resample2d_package/ \ && python setup.py develop
+
+    # - cp ./README.md:/home/
+    # - python setup.py develop
+    # - COPY ../codes /src
+    # - copy: /media/mustafa/ubuntu_backup/Projects/tcvc/repilace/Deep-Exemplar-based-Video-Colorization/requirements.txt
+    # - pip install -r /home/requirements.txt
+    # - wget https://github.com/zhangmozhe/Deep-Exemplar-based-Video-Colorization/releases/download/v1.0/colorization_checkpoint.zip
+    # - unzip colorization_checkpoint.zip
+
+# WORKDIR:
+#   - ad
+predict: "predict.py:Predictor"
