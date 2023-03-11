@@ -78,7 +78,7 @@ To use TCVC-Modal with Docker, follow these steps:
     docker run --gpus all --net host --rm -it --name tcvc tcvc
     ```
 
-4. Follow steps 3-7 above to run the colorization test inside the Docker container.
+4. Follow steps 5-7 above to run the colorization test inside the Docker container.
 
 ## License
 
